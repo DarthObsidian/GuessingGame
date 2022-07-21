@@ -45,7 +45,10 @@ namespace GuessingGame.Tests
         [Test]
         public void NonConsecutiveDuplicateGuessesAreCounted()
         {
-            Assert.Fail();
+            game.CheckGuess(5);
+            game.CheckGuess(500);
+            game.CheckGuess(5);
+            Assert.That(game.TotalGuesses, Is.EqualTo(3));
         }
 
         [Test]

@@ -29,7 +29,8 @@ namespace GuessingGame.Tests
         [Test]
         public void LowGuessIsAnsweredAsSuch()
         {
-            Assert.Fail();
+            int result = game.CheckGuess(50);
+            Assert.That(result, Is.LessThan(0));
         }
 
         [Test]

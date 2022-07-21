@@ -47,5 +47,16 @@ namespace GuessingGame.Tests
         {
             Assert.Fail();
         }
+
+        [Test]
+        public void StringInputIsInvalid()
+        {
+            Assert.Fail();
+        }
+
+        public void NonIntInputIsInvalid()
+        {
+            Assert.Fail();
+        }
     }
 }

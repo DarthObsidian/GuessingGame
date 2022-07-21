@@ -8,7 +8,10 @@ namespace GuessingGame
 {
     internal class Game
     {
-        internal int currentNum { get; set; }
+        internal int CurrentNum { get; set; }
+        internal int TotalGuesses { get; set; }
+
+        int lastGuess;
 
         internal void RunGame()
         {
@@ -17,12 +20,21 @@ namespace GuessingGame
 
         internal int CheckGuess(int _num)
         {
-            if (_num == currentNum)
+            CountGuesses(_num);
+
+            if (_num == CurrentNum)
                 return 0;
-            else if (_num > currentNum)
+            else if (_num > CurrentNum)
                 return 1;
             else
                 return -1;
+        }
+
+        void CountGuesses(int _num)
+        {
+            if (lastGuess != _num)
+                TotalGuesses++;
+            lastGuess = _num;
         }
 
         internal int GetRandomNumber()

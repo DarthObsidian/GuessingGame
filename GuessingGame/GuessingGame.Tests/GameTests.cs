@@ -8,7 +8,7 @@ namespace GuessingGame.Tests
         public void Setup()
         {
             game = new();
-            game.currentNum = 500;
+            game.CurrentNum = 500;
         }
 
         [Test]
@@ -36,7 +36,10 @@ namespace GuessingGame.Tests
         [Test]
         public void ConsecutiveDuplicateGuessesAreNotCounted()
         {
-            Assert.Fail();
+            game.CheckGuess(5);
+            game.CheckGuess(5);
+            game.CheckGuess(5);
+            Assert.That(game.TotalGuesses, Is.EqualTo(1));
         }
 
         [Test]

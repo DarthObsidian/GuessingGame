@@ -12,5 +12,11 @@ namespace GuessingGame
         {
 
         }
+
+        internal int GetRandomNumber()
+        {
+            Random random = new();
+            return random.Next(0, 9999);
+        }
     }
 }

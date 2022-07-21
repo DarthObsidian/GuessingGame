@@ -13,7 +13,9 @@ namespace GuessingGame.Tests
         [Test]
         public void GeneratedNumberIsInRange()
         {
-            Assert.Fail();
+            int randomNum = game.GetRandomNumber();
+            bool result = randomNum <= 9999 && randomNum >= 0;
+            Assert.That(result, Is.True);
         }
 
         [Test]

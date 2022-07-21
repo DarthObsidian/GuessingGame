@@ -8,6 +8,7 @@ namespace GuessingGame.Tests
         public void Setup()
         {
             game = new();
+            game.currentNum = 500;
         }
 
         [Test]
@@ -21,7 +22,8 @@ namespace GuessingGame.Tests
         [Test]
         public void HighGuessIsAnsweredAsSuch()
         {
-            Assert.Fail();
+            int result = game.CheckGuess(600);
+            Assert.That(result, Is.GreaterThan(0));
         }
 
         [Test]

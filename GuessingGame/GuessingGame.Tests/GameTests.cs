@@ -52,12 +52,6 @@ namespace GuessingGame.Tests
         }
 
         [Test]
-        public void CorrectGuessShowsTotalTries()
-        {
-            Assert.Fail();
-        }
-
-        [Test]
         public void SetupResetsGameData()
         {
             game.CurrentNum = 50;

@@ -60,7 +60,8 @@ namespace GuessingGame.Tests
         [Test]
         public void StringInputIsInvalid()
         {
-            Assert.Fail();
+            bool result = game.ValidateInput("absec");
+            Assert.That(result, Is.False);
         }
 
         public void NonIntInputIsInvalid()

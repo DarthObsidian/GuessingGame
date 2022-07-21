@@ -12,10 +12,16 @@ namespace GuessingGame
         internal int TotalGuesses { get; set; }
 
         int lastGuess;
+        int currentGuess;
 
         internal void RunGame()
         {
 
+        }
+
+        internal bool ValidateInput(string _input)
+        {
+            return int.TryParse(_input, out currentGuess);
         }
 
         internal int CheckGuess(int _num)

@@ -19,6 +19,14 @@ namespace GuessingGame
 
         }
 
+        internal void Setup()
+        {
+            CurrentNum = 0;
+            TotalGuesses = 0;
+            lastGuess = int.MaxValue;
+            currentGuess = int.MaxValue;
+        }
+
         internal bool ValidateInput(string _input)
         {
             return int.TryParse(_input, out currentGuess);

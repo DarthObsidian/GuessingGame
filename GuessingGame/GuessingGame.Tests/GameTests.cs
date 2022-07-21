@@ -58,15 +58,27 @@ namespace GuessingGame.Tests
         }
 
         [Test]
+        public void SetupResetsGameData()
+        {
+            game.CurrentNum = 50;
+            game.TotalGuesses = 500;
+            game.Setup();
+            Assert.That(game.TotalGuesses, Is.EqualTo(0));
+            Assert.That(game.CurrentNum, Is.EqualTo(0));
+        }
+
+        [Test]
         public void StringInputIsInvalid()
         {
             bool result = game.ValidateInput("absec");
             Assert.That(result, Is.False);
         }
 
+        [Test]
         public void NonIntInputIsInvalid()
         {
-            Assert.Fail();
+            bool result = game.ValidateInput("16.5");
+            Assert.That(result, Is.False);
         }
     }
 }

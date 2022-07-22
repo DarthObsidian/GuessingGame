@@ -10,7 +10,8 @@ namespace GuessingGame
     {
         static void Main(string[] args)
         {
-
+            Game game = new();
+            game.RunGame();
         }
     }
 }

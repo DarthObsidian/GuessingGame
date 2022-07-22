@@ -12,11 +12,34 @@ namespace GuessingGame
         internal int TotalGuesses { get; set; }
 
         int lastGuess;
-        int currentGuess;
+        int currentGuess = -1;
 
         internal void RunGame()
         {
+            Setup();
 
+            Console.WriteLine("I've got a number from 0 to 9999, please make a guess.");
+            string input;
+
+            while (currentGuess != CurrentNum)
+            {
+                input = Console.ReadLine();
+                while (!ValidateInput(input))
+                {
+                    Console.WriteLine("Please enter a whole number.");
+                    input = Console.ReadLine();
+                }
+
+                int result = CheckGuess(currentGuess);
+                if (result > 0)
+                    Console.WriteLine("Your guess is too high, please pick another number.");
+                else if (result < 0)
+                    Console.WriteLine("Your guess is too low, please pick another number.");
+            }
+
+            Console.WriteLine($"Congratulations! You've won!\nYou made {TotalGuesses} guesses.\nDo you want to play again (Y/N)?");
+            if (Console.ReadLine() == "Y")
+                RunGame();
         }
 
         internal void Setup()

@@ -57,8 +57,11 @@ namespace GuessingGame.Tests
             game.CurrentNum = 50;
             game.TotalGuesses = 500;
             game.Setup();
-            Assert.That(game.TotalGuesses, Is.EqualTo(0));
-            Assert.That(game.CurrentNum, Is.EqualTo(0));
+            Assert.Multiple(() =>
+            {
+                Assert.That(game.CurrentNum, Is.Not.EqualTo(50));
+                Assert.That(game.TotalGuesses, Is.EqualTo(0));
+            });
         }
 
         [Test]

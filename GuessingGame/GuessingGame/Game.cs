@@ -21,7 +21,7 @@ namespace GuessingGame
 
         internal void Setup()
         {
-            CurrentNum = 0;
+            CurrentNum = GetRandomNumber();
             TotalGuesses = 0;
             lastGuess = int.MaxValue;
             currentGuess = int.MaxValue;
